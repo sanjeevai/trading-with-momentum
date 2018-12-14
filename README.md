@@ -35,7 +35,7 @@
 ### Statistical Tests
 
 <a id='5_1'></a>
-#### Annulazied Rate of Return
+#### Annualized Rate of Return
 
 <a id='5_2'></a>
 #### T-test
