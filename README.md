@@ -7,45 +7,47 @@
 
 ## Table of Contents
 
-1. [Project Overview](#1)
-2. [Data](#2)
-3. [Trading Signal](#3)
-4. [Trading Strategy](#4)
-5. [Performace of Portfolio](#5)
-6. [Statistical Tests](#6)
-    1. [Annualized Rate of Return](#6_1)
-    2. [T-Test](#6_2)
-7. [Conclusion](#7)
-8. [Files](#8)
-9. [Libraries](#9)
+1. [Project Overview](#overview)
+2. [Data](#data)
+3. [Trading Signal](#signal)
+4. [Trading Strategy](#strategy)
+5. [Performace of Portfolio](#performance)
+6. [Statistical Tests](#tests)
+    1. [Annualized Rate of Return](#annualized_ret)
+    2. [T-Test](#t_test)
+7. [Conclusion](#conclusion)
+8. [Files](#files)
+9. [Libraries](#lib)
 
-<a id='1'></a>
+<a id='overview'></a>
 
 ### Project Overview
 
-In this project, we implemented a **trading strategy**, and tested to see if it has the potential to be **profitable**. We are supplied with a universe of stocks and time range. We are also provided with a textual description of how to generate a trading signal based on a **momentum indicator**. We then compute the signal for the time range given and apply it to the dataset to produce **projected returns.** Finally, we perform a statistical test on the mean of the returns to conclude if there is an **alpha** in the signal.
+In this project, we will implement a momentum [**trading strategy**](#4), and test it to see if it has the potential to be **profitable**. We are supplied with a universe of stocks and time range. We are also provided with a textual description of how to generate a trading signal based on a [**momentum indicator**.](#m_indicator) We will then compute the signal for the time range given and apply it to the dataset to produce [**projected returns.**](#projected_ret) Finally, we will perform a statistical test on the mean of the returns to conclude if there is an **alpha** in the signal.
 
-<a id='2'></a>
+<a id='data'></a>
 
 ### Data
 
-For the dataset, we will use the end of day from [Quotemedia](https://www.quotemedia.com/). This contains data for many stocks, but we will look at stocks in the S&P **500**. We will also make things a little easier to run by narrowing down our range of time period instead of using all of the data.
+For the dataset, we will use the end of day from [Quotemedia](https://www.quotemedia.com/). This contains data for many stocks, but we will look at stocks in the **S&P 500.** We will also make things a little easier to run by narrowing down our range of time period instead of using all of the data.
 
 Udacity doesn't have a license to redistribute the data to us. They are working on alternatives to this [problem](https://github.com/udacity/artificial-intelligence-for-trading).
 
 For all the examples, we will use **Apple's stock (AAPL)**. If we try to graph all the stocks, it would be too much information.
 
-<a id='3'></a>
+<a id='signal'></a>
 
 ### Trading Signal
 
 The trading signal we'll develop in this project does not need to be based on daily prices, for instance, we can use **month-end prices** to perform trading once a month. To do this, we must first resample the **daily adjusted closing prices** into monthly buckets, and select the last observation of each month.
 
+<a id='m_indicator'></a>
+
 **Computed Log returns** from prices is our primary momentum indicator.
 
 A **trading signal** is a sequence of trading actions, or results that can be used to take trading actions. A common form is to produce a "long" and "short" portfolio of stocks on each date (e.g. end of each month, or whatever frequency you desire to trade at). This signal can be interpreted as **rebalancing your portfolio** on each of those dates, entering long ("buy") and short ("sell") positions as indicated.
 
-<a id='4'></a>
+<a id='strategy'></a>
 
 ### Trading Strategy
 
@@ -53,13 +55,15 @@ Here's a strategy that we will try:
 
 > For each month-end observation period, rank the stocks by previous returns, from the highest to the lowest. Select the top performing stocks for the long portfolio, and the bottom performing stocks for the short portfolio.
 
-<a id='5'></a>
+<a id='performance'></a>
 
 ### Performance of Portfolio
 
 It's now time to check if our trading signal has the potential to become profitable!
 
 We'll start by computing the net returns this portfolio would return. For simplicity, we'll assume every stock gets an equal dollar amount of investment. This makes it easier to compute a portfolio's returns as the simple arithmetic average of the individual stock returns.
+
+<a id='projected_ret'></a>
 
  The `portfolio_returns` function to compute the **expected portfolio returns.** Using `df_long` to indicate which stocks to long and `df_short` to indicate which stocks to short, it calculates the returns using `lookahead_returns`. To help with calculation, `n_stocks` is the number of stocks we're investing in a single period.
 
@@ -88,17 +92,17 @@ def portfolio_returns(df_long, df_short, lookahead_returns, n_stocks):
 
     return ((df_long - df_short) * lookahead_returns)/n_stocks
 ```
-<a id='6'></a>
+<a id='tests'></a>
 
 ### Statistical Tests
 
-<a id='6_1'></a>
+<a id='annualized_ret'></a>
 
 #### Annualized Rate of Return
 
 The annualized rate of return allows you to compare the rate of return from this strategy to other quoted rates of return, which are usually quoted on an annual basis.
 
-<a id='6_2'></a>
+<a id='t_test'></a>
 
 #### T-test
 
@@ -108,13 +112,13 @@ For this project, we'll use $\alpha = 0.05$, since it's a common value to use.
 
 The `analyze_alpha` function performs a t-test on the sample of portfolio returns.
 
-<a id='7'></a>
+<a id='conclusion'></a>
 
 ### Conclusion
 
 T-test returned a **p-value of 0.21.** This is a very high p-value so we cannot reject the null hypothesis. We come to the conclusion from t-test that our signal was not strong enough to give us positive returns. In other words, our signal is **not profitable.**
 
-<a id='8'></a>
+<a id='files'></a>
 
 ### Files
 
@@ -124,7 +128,7 @@ T-test returned a **p-value of 0.21.** This is a very high p-value so we cannot 
 
 - `tests` is used to construct test cases for unit tests.
 
-<a id='9'></a>
+<a id='lib'></a>
 
 ### Libraries
 
