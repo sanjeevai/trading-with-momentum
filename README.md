@@ -180,7 +180,7 @@ Python-based ecosystem of open-source software for mathematics, science, and eng
 
 - [scikit-learn==0.19.1](https://scikit-learn.org/stable/)
 
-A set of python modules for machine learning and data mining
+A set of python modules for machine learning and data mining.
 
 - [six==1.11.0](https://github.com/benjaminp/six)
 
