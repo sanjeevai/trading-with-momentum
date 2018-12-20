@@ -21,6 +21,8 @@
 
 <a id='overview'></a>
 
+***
+
 ### Project Overview
 
 In this project, we will implement a momentum [**trading strategy**](#4), and test it to see if it has the potential to be **profitable**. We are supplied with a universe of stocks and time range. We are also provided with a textual description of how to generate a trading signal based on a [**momentum indicator**.](#m_indicator) We will then compute the signal for the time range given and apply it to the dataset to produce [**projected returns.**](#projected_ret) Finally, we will perform a statistical test on the mean of the returns to conclude if there is an **alpha** in the signal.
@@ -152,11 +154,11 @@ NumPy is the fundamental package for scientific computing with Python.
 
 - [pandas==0.21.1](https://github.com/pandas-dev/pandas)
 
-Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more.
+Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R `data.frame` objects, statistical functions, and much more.
 
 - [plotly==2.2.3](https://plot.ly/python/)
 
-Flexible and powerful data analysis / manipulation library for Python, providing labeled data structures similar to R data.frame objects, statistical functions, and much more
+Python plotting library for collaborative, interactive, publication-quality graphs.
 
 - [pyparsing==2.2.0](https://github.com/pyparsing/pyparsing/)
 
@@ -164,7 +166,7 @@ The pyparsing module is an alternative approach to creating and executing simple
 
 - [python-dateutil==2.6.1](https://dateutil.readthedocs.io/en/stable/)
 
-Extensions to the standard Python datetime module
+Extensions to the standard Python datetime module.
 
 - [pytz==2017.3](https://pythonhosted.org/pytz/)
 
@@ -172,7 +174,7 @@ This library allows accurate and cross platform timezone calculations using Pyth
 
 - [requests==2.18.4](http://docs.python-requests.org/en/master/)
 
-Requests is an elegant and simple HTTP library for Python, built for human beings. 
+Requests is an elegant and simple HTTP library for Python, built for human beings.
 
 - [scipy==1.0.0](https://www.scipy.org/)
 
