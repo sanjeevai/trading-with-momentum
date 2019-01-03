@@ -33,7 +33,7 @@ In this project, we will implement a momentum [**trading strategy**](#4), and te
 
 For the dataset, we will use the end of day from [Quotemedia](https://www.quotemedia.com/). This contains data for many stocks, but we will look at stocks in the **S&P 500.** We will also make things a little easier to run by narrowing down our range of time period instead of using all of the data.
 
-Udacity doesn't have a license to redistribute the data to us. They are working on alternatives to this [problem](https://github.com/udacity/artificial-intelligence-for-trading).
+Udacity doesn't have a license to redistribute the data to us. They are working on alternatives to this [problem](https://github.com/udacity/artificial-intelligence-for-trading/#no-data).
 
 For all the examples, we will use **Apple's stock (AAPL)**. If we try to graph all the stocks, it would be too much information.
 
