@@ -108,9 +108,9 @@ The annualized rate of return allows you to compare the rate of return from this
 
 #### T-test
 
-Our null hypothesis ($H_0$) is that the actual mean return from the signal is zero. We'll perform a one-sample, one-sided t-test on the observed mean return, to see if we can reject $H_0$.
+Our null hypothesis (H<sub>0</sub>) is that the actual mean return from the signal is zero. We'll perform a one-sample, one-sided t-test on the observed mean return, to see if we can reject H<sub>0</sub>.
 
-For this project, we'll use $\alpha = 0.05$, since it's a common value to use.
+For this project, we'll use alpha level = 0.05, since it's a common value to use.
 
 The `analyze_alpha` function performs a t-test on the sample of portfolio returns.
 
